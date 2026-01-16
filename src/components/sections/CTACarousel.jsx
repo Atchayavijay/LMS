@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 
+import icon1 from '../../../assets/icon.png';
+import icon2 from '../../../assets/icon-2.png';
+
 const CTACarousel = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
@@ -11,7 +14,7 @@ const CTACarousel = () => {
       title: "Full Stack is evolving. Are you?",
       description: "Build production-ready applications using React, Node.js, and modern frameworks companies actually use.",
       buttonText: "Explore developer track",
-      icon: "/assets/icon.png"
+      icon: icon1
     },
     {
       id: 2,
@@ -19,7 +22,7 @@ const CTACarousel = () => {
       title: "Advance your career without quitting your job",
       description: "Learn evenings and weekends. Build real projects. Get hired. All with flexible schedules designed for working professionals",
       buttonText: "View All Tracks",
-      icon: "/assets/icon-2.png"
+      icon: icon2
     },
     {
       id: 3,
@@ -27,7 +30,7 @@ const CTACarousel = () => {
       title: "The future is automated testing. Start building today.",
       description: "Manual testing is dead. Learn Selenium, Cypress, and CI/CD automation to stay relevant in 2025 and beyond",
       buttonText: "Start QA Track",
-      icon: "/assets/icon.png"
+      icon: icon1
     },
     {
       id: 4,
@@ -35,7 +38,7 @@ const CTACarousel = () => {
       title: "Cloud & DevOps are reshaping IT. Are you ready?",
       description: "Docker, Kubernetes, and AWS aren't optional anymore. Companies need DevOps engineers who can deploy, not just code.",
       buttonText: "Start Cloud Track",
-      icon: "/assets/icon.png"
+      icon: icon1
     },
     {
       id: 5,
@@ -43,7 +46,7 @@ const CTACarousel = () => {
       title: "Data drives every decision. Can you analyze it?",
       description: "SQL, Python, and Tableau are non-negotiable skills. Learn data analytics and become the person companies can't afford to lose.",
       buttonText: "Start Data Track",
-      icon: "/assets/icon.png"
+      icon: icon1
     },
     {
       id: 6,
@@ -51,7 +54,7 @@ const CTACarousel = () => {
       title: "AI tools are changing development. Learn to use them",
       description: "GitHub Copilot, ChatGPT, and AI-assisted coding are the new normal. Build faster, smarter, and stay ahead of developers who don't adapt",
       buttonText: "Master AI Tools",
-      icon: "/assets/icon.png"
+      icon: icon1
     }
   ];
 

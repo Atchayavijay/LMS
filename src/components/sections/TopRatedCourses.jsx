@@ -1,6 +1,11 @@
 import React from 'react';
 import CourseSection from './CourseSection';
 
+import webDevImg from '../../../assets/TopCourses/Develop-1.png';
+import designImg from '../../../assets/TopCourses/Design.png';
+import htmlImg from '../../../assets/TopCourses/Development.png';
+import marketingImg from '../../../assets/TopCourses/Marketing.png';
+
 const TopRatedCourses = () => {
   const courses = [
     {
@@ -11,7 +16,7 @@ const TopRatedCourses = () => {
       lessons: '05',
       duration: '11h 20m',
       projects: '22',
-      image: '/assets/TopCourses/DeveloP-1.PNG'
+      image: webDevImg
     },
     {
       title: 'UI/UX Designer Masterclass-2025',
@@ -21,7 +26,7 @@ const TopRatedCourses = () => {
       lessons: '06',
       duration: '14h 00m',
       projects: '30',
-      image: '/assets/TopCourses/Design.png'
+      image: designImg
     },
     {
       title: 'HTML - The Complete Guide 2026',
@@ -31,7 +36,7 @@ const TopRatedCourses = () => {
       lessons: '04',
       duration: '09h 00m',
       projects: '40',
-      image: '/assets/TopCourses/Development.png'
+      image: htmlImg
     },
     {
       title: 'Content Marketing Masterclass',
@@ -41,7 +46,7 @@ const TopRatedCourses = () => {
       lessons: '07',
       duration: '08h 30m',
       projects: '45',
-      image: '/assets/TopCourses/Marketing.png'
+      image: marketingImg
     },
   ];
 

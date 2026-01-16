@@ -2,13 +2,20 @@ import React from 'react';
 import { Code, Palette, Cloud, BarChart2, Megaphone, ShieldCheck, Star } from 'lucide-react';
 import pathBg from '../../../assets/Path-bg.png';
 
+import developerImg from '../../../assets/Roles/developer.png';
+import designerImg from '../../../assets/Roles/designer.png';
+import devopsImg from '../../../assets/Roles/devops.png';
+import dataImg from '../../../assets/Roles/data.png';
+import digitalImg from '../../../assets/Roles/digital.png';
+import qaImg from '../../../assets/Roles/QA.png';
+
 const PathSelector = () => {
   const paths = [
     {
       id: 1,
       title: 'Developer',
       icon: <Code className="w-8 h-8 md:w-10 md:h-10 text-white" />,
-      image: '/assets/Roles/developer.png',
+      image: developerImg,
       description: "For those who ship products, not just code.",
       features: ["React", "NodeJS", "API", "Deploy"],
       cta: "Start Building"
@@ -17,7 +24,7 @@ const PathSelector = () => {
       id: 2,
       title: 'Designer',
       icon: <Palette className="w-8 h-8 md:w-10 md:h-10 text-white" />,
-      image: '/assets/Roles/designer.png',
+      image: designerImg,
       description: "For those who create systems, not just screens.",
       features: ["Figma", "Design Systems", "Motion", "Sketch"],
       cta: "Start Designing"
@@ -26,7 +33,7 @@ const PathSelector = () => {
       id: 3,
       title: 'DevOps Engineer',
       icon: <Cloud className="w-8 h-8 md:w-10 md:h-10 text-white" />,
-      image: '/assets/Roles/devops.png',
+      image: devopsImg,
       description: "For those who build pipelines, not just deploy code.",
       features: ["Docker", "CI/CD", "Cloud", "Monitoring"],
       cta: "Start Deploying"
@@ -35,7 +42,7 @@ const PathSelector = () => {
       id: 4,
       title: 'Data Analyst',
       icon: <BarChart2 className="w-8 h-8 md:w-10 md:h-10 text-white" />,
-      image: '/assets/Roles/data.png',
+      image: dataImg,
       description: "For those who drive insights, not just reports.",
       features: ["SQL", "Python", "Visualization", "Strategy"],
       cta: "Start Analyzing"
@@ -44,7 +51,7 @@ const PathSelector = () => {
       id: 5,
       title: 'Digital Marketer',
       icon: <Megaphone className="w-8 h-8 md:w-10 md:h-10 text-white" />,
-      image: '/assets/Roles/digital.png',
+      image: digitalImg,
       description: "For those who build growth, not just campaigns.",
       features: ["SEO", "Ads", "Analytics", "Content Strategy"],
       cta: "Start Growing"
@@ -53,7 +60,7 @@ const PathSelector = () => {
       id: 6,
       title: 'QA Engineer',
       icon: <ShieldCheck className="w-8 h-8 md:w-10 md:h-10 text-white" />,
-      image: '/assets/Roles/QA.png',
+      image: qaImg,
       description: "For those who automate quality, not just run tests.",
       features: ["Selenium", "Cypress", "Automation", "Frameworks"],
       cta: "Start Testing"
