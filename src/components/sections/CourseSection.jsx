@@ -74,7 +74,7 @@ const CourseSection = ({ title, highlightWord, courses }) => {
         {/* Section Header */}
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-white mb-4">
-            {title} <span className="text-[#FF5E5E]">{highlightWord}</span>
+            {title} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF8C42] to-[#FF3FB4]">{highlightWord}</span>
           </h2>
           
           {/* Decorative line with stars - Visible lines with proper gradient */}

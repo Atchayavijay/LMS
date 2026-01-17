@@ -73,7 +73,7 @@ const PathSelector = () => {
         {/* Header Section */}
         <div className="text-center mb-10">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-            Choose your path <span className="text-[#FF5E5E]">We handle the rest!</span>
+            Choose your path <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF8C42] to-[#FF3FB4]">We handle the rest!</span>
           </h2>
           
           {/* Decorative line with stars */}
