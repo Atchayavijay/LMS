@@ -1,13 +1,13 @@
 import React from 'react'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
-import HeroSection from '../components/sections/HeroSection'
-import PathSelector from '../components/sections/PathSelector'
-import TopRatedCourses from '../components/sections/TopRatedCourses'
-import InDemandCourses from '../components/sections/InDemandCourses'
-import BlogSection from '../components/sections/BlogSection'
-import TestimonialsSection from '../components/sections/TestimonialsSection'
-import CTACarousel from '../components/sections/CTACarousel'
+import HeroSection from '../components/HomePage/HeroSection'
+import PathSelector from '../components/HomePage/PathSelector'
+import TopRatedCourses from '../components/HomePage/TopRatedCourses'
+import InDemandCourses from '../components/HomePage/InDemandCourses'
+import BlogSection from '../components/HomePage/BlogSection'
+import TestimonialsSection from '../components/HomePage/TestimonialsSection'
+import CTACarousel from '../components/HomePage/CTACarousel'
 
 const LandingPage = () => {
   return (
