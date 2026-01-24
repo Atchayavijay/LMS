@@ -8,7 +8,7 @@ import heroDecorationRightTop from "../../assets/hero-decoration-right-top.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-start pt-28 md:pt-32 lg:pt-36 xl:pt-44 pb-16">
+    <section className="relative min-h-screen w-full overflow-hidden flex flex-col items-center justify-start pt-28 md:pt-32 lg:pt-36 xl:pt-44 pb-8">
 
       {/* Background Image */}
       <img
@@ -21,7 +21,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50" />
       
       {/* Bottom Fade to blend with next section */}
-      <div className="absolute bottom-0 left-0 w-full h-40 bg-gradient-to-t from-[#090C03] via-[#090C03]/60 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-[#090C03] via-[#090C03]/60 to-transparent pointer-events-none" />
 
       {/* Floating Decorations */}
       {/* Right Icon (Menu/UI) - Top Right */}

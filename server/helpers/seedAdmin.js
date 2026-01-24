@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
 const seedAdmin = async () => {
     try {
-        console.log('--- Starting Admin Seeding ---');
+       
 
         // 1. Seed Roles
         const roles = [
@@ -16,7 +16,7 @@ const seedAdmin = async () => {
         for (const role of roles) {
             await Role.findOneAndUpdate({ roleId: role.roleId }, role, { upsert: true });
         }
-        console.log('✅ Roles initialized.');
+       
 
         // 2. Seed Admin User
         const adminEmail = 'admin@kattran.com';
@@ -40,9 +40,7 @@ const seedAdmin = async () => {
                 status: 'active'
             });
         }
-
-        console.log('✅ Admin seeding completed successfully.');
-        console.log('--- Seeding Done ---');
+    
     } catch (error) {
         console.error('❌ Admin Seeding FAILED:', error.message);
     }

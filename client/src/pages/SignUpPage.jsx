@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { CheckCircle2, Circle } from 'lucide-react';
 import { register, clearError } from '../features/auth/store/authSlice';
 import Button from '../components/ui/Button';
 import Input from '../components/ui/Input';
@@ -30,15 +31,55 @@ const SignUpPage = () => {
     return () => dispatch(clearError());
   }, [dispatch]);
 
+  const [passwordError, setPasswordError] = useState('');
+  const [passwordMetadata, setPasswordMetadata] = useState({
+    hasMinLength: false,
+    hasLetter: false,
+    hasNumber: false,
+    hasSpecial: false
+  });
+
+  const validatePassword = (pass) => {
+    const meta = {
+        hasMinLength: pass.length >= 6,
+        hasLetter: /[a-zA-Z]/.test(pass),
+        hasNumber: /[0-9]/.test(pass),
+        hasSpecial: /[!@#$%^&*(),.?":{}|<>]/.test(pass)
+    };
+    setPasswordMetadata(meta);
+
+    if (!meta.hasMinLength) return "Password must be at least 6 characters long";
+    if (!meta.hasLetter) return "Password must contain at least one letter";
+    if (!meta.hasNumber) return "Password must contain at least one number";
+    if (!meta.hasSpecial) return "Password must contain at least one special character";
+    return "";
+  };
+
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: value,
     });
+
+    if (name === 'password') {
+      const error = validatePassword(value);
+      // Only show error message if user has started typing and something is wrong
+      if (value.length > 0 && error) {
+          setPasswordError(error);
+      } else {
+          setPasswordError('');
+      }
+    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const pError = validatePassword(formData.password);
+    if (pError) {
+      setPasswordError(pError);
+      return;
+    }
     dispatch(register(formData));
   };
 
@@ -88,15 +129,33 @@ const SignUpPage = () => {
               required
             />
 
-            <Input
-              label="Password"
-              name="password"
-              type="password"
-              placeholder="••••••••"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
+            <div className="space-y-4">
+                <Input
+                label="Password"
+                name="password"
+                type="password"
+                placeholder="••••••••"
+                value={formData.password}
+                onChange={handleChange}
+                error={passwordError}
+                required
+                />
+                
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 px-2">
+                    {[
+                        { label: '6+ Char & Letters', met: passwordMetadata.hasMinLength && passwordMetadata.hasLetter },
+                        { label: 'At least 1 Number', met: passwordMetadata.hasNumber },
+                        { label: '1 Special Character', met: passwordMetadata.hasSpecial }
+                    ].map((rule, idx) => (
+                        <div key={idx} className={`flex items-center gap-2 transition-all duration-300 ${rule.met ? 'text-primary-pink' : 'text-white/30'}`}>
+                            {rule.met ? <CheckCircle2 size={14} /> : <Circle size={14} />}
+                            <span className="text-[10px] font-bold uppercase tracking-widest leading-none">
+                                {rule.label}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+            </div>
 
             <div className="flex items-start gap-2.5 px-1">
               <input 

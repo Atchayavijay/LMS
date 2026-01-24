@@ -6,6 +6,7 @@ import InDemandCourses from '../components/HomePage/InDemandCourses'
 import BlogSection from '../components/HomePage/BlogSection'
 import TestimonialsSection from '../components/HomePage/TestimonialsSection'
 import CTACarousel from '../components/HomePage/CTACarousel'
+import Footer from '../components/layout/Footer'
 
 /**
  * LandingPage component.
@@ -22,10 +23,10 @@ const LandingPage = () => {
       <BlogSection />
       
       {/* Bottom section with specific gradient styling */}
-      <div className="bg-gradient-to-b from-[#090C03] via-[#090C03] via-70% to-[#3d1219] relative">
+      <div className="bg-gradient-to-b from-[#090C03] via-[#090C03] via-60% to-[#3d1219] relative">
         <TestimonialsSection />
         <CTACarousel />
-        {/* The MainLayout in App.jsx wraps this page and provides the global Footer */}
+        <Footer />
       </div>
     </div>
   )

@@ -76,7 +76,7 @@ const PathSelector = () => {
   ];
 
   return (
-    <section className="relative w-full py-24 px-4 bg-transparent overflow-hidden flex flex-col items-center">
+    <section className="relative w-full pt-10 pb-24 px-4 bg-transparent overflow-hidden flex flex-col items-center">
       <div className="relative z-10 w-full max-w-[1095px] flex flex-col items-center">
         {/* Header Section */}
         <div className="text-center mb-10">
@@ -84,16 +84,7 @@ const PathSelector = () => {
             Choose your path <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF8C42] to-[#FF3FB4]">We handle the rest!</span>
           </h2>
           
-          {/* Decorative line with stars */}
-          <div className="flex items-center justify-center gap-6 w-full max-w-[400px] mx-auto opacity-90">
-            <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
-            <div className="flex gap-2 items-center">
-              <Star className="w-3 h-3 text-white/40 fill-white/40" />
-              <Star className="w-4 h-4 text-white fill-white" />
-              <Star className="w-3 h-3 text-white/40 fill-white/40" />
-            </div>
-            <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-white/50 to-transparent"></div>
-          </div>
+
         </div>
 
         {/* Main Glass Container - Width 1095px */}

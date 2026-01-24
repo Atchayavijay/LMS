@@ -26,7 +26,7 @@ const Input = ({
         placeholder={placeholder}
         className={twMerge(
           clsx(
-            'w-full bg-white/[0.05] border border-white/10 rounded-full py-2.5 px-6 text-white text-[14px] placeholder:text-white/20 focus:outline-none focus:border-white/40 focus:bg-white/[0.08] transition-all',
+            'w-full bg-white/[0.05] border border-white/10 rounded-full py-2.5 px-6 text-white text-[14px] placeholder:text-white/50 focus:outline-none focus:border-white/70 focus:bg-white/[0.08] transition-all',
             error && 'border-red-500/50 focus:border-red-500',
             className
           )

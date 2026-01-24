@@ -30,7 +30,7 @@ function App() {
       <Suspense fallback={<div className="min-h-screen bg-[#0c091a] flex items-center justify-center text-white">Loading...</div>}>
         <Routes>
           {/* Public Routes */}
-          <Route path="/" element={<MainLayout><LandingPage /></MainLayout>} />
+          <Route path="/" element={<MainLayout showFooter={false}><LandingPage /></MainLayout>} />
           
           {/* Auth Routes */}
           <Route path="/login" element={<LoginPage />} />

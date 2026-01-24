@@ -97,7 +97,7 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="relative w-full py-20 px-4 flex flex-col items-center overflow-hidden">
+    <section className="relative w-full pt-10 pb-20 px-4 flex flex-col items-center overflow-hidden">
       {/* Gradient Overlays for Focus Effect - Positioned relative to section for full coverage */}
       <div className="absolute inset-y-0 left-0 w-[15%] md:w-[30%] bg-gradient-to-r from-[#090C03] via-[#090C03]/90 to-transparent z-30 pointer-events-none"></div>
       <div className="absolute inset-y-0 right-0 w-[15%] md:w-[30%] bg-gradient-to-l from-[#090C03] via-[#090C03]/90 to-transparent z-30 pointer-events-none"></div>
@@ -109,32 +109,31 @@ const TestimonialsSection = () => {
             Voices That Validate <span className="bg-gradient-to-r from-[#FF8C42] to-[#FF3FB4] bg-clip-text text-transparent">Our Impact</span>
           </h2>
           
-          {/* Decorative line with stars */}
-          <div className="flex items-center justify-center gap-3 w-full max-w-[600px] mx-auto">
-            <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-white/60"></div>
-            <div className="flex gap-1 items-center">
-              <Star className="w-2 h-2 text-white/60 fill-white/60" />
-              <Star className="w-3 h-3 text-white fill-white" />
-              <Star className="w-2 h-2 text-white/60 fill-white/60" />
-            </div>
-            <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-white/60"></div>
-          </div>
+
         </div>
 
-        {/* Testimonials Rows - Staggered Layout */}
-        <div className="flex flex-col gap-16 mb-8 w-full">
-          {/* First Row - Centered */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
-            {testimonials.slice(0, 3).map((testimonial) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-            ))}
+        {/* Testimonials Rows - Marquee Layout */}
+        <div className="flex flex-col gap-12 mb-8 w-full overflow-hidden py-12 -my-12">
+          {/* First Row - Scrolling Right to Left */}
+          <div className="relative flex overflow-hidden group/container1">
+            <div className="animate-marquee flex gap-6 px-4">
+              {[...testimonials.slice(0, 3), ...testimonials.slice(0, 3)].map((testimonial, index) => (
+                <div key={`${testimonial.id}-${index}`} className="w-[380px] flex-shrink-0">
+                  <TestimonialCard testimonial={testimonial} />
+                </div>
+              ))}
+            </div>
           </div>
 
-          {/* Second Row - Shifted Right */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10 md:translate-x-12 lg:translate-x-16">
-            {testimonials.slice(3, 6).map((testimonial) => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
-            ))}
+          {/* Second Row - Scrolling Left to Right (Reverse) */}
+          <div className="relative flex overflow-hidden group/container2">
+            <div className="animate-marquee-reverse flex gap-6 px-4">
+              {[...testimonials.slice(3, 6), ...testimonials.slice(3, 6)].map((testimonial, index) => (
+                <div key={`${testimonial.id}-${index}`} className="w-[380px] flex-shrink-0">
+                  <TestimonialCard testimonial={testimonial} />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -6,14 +6,14 @@ import Footer from '../components/layout/Footer';
  * Common Layout for public and logged-in views.
  * Uses <main> to wrap the dynamic content from routes.
  */
-const MainLayout = ({ children }) => {
+const MainLayout = ({ children, showFooter = true }) => {
   return (
-    <div className="min-h-screen bg-[#0c091a] flex flex-col font-satoshi selection:bg-primary-pink/30 relative">
+    <div className="min-h-screen bg-[#090C03] flex flex-col font-satoshi selection:bg-primary-pink/30 relative">
       <Navbar />
       <main className="flex-grow">
         {children}
       </main>
-      <Footer />
+      {showFooter && <Footer />}
     </div>
   );
 };

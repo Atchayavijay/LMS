@@ -22,7 +22,7 @@ const Dashboard = () => {
     <div className="space-y-10">
       <header>
         <h1 className="text-3xl font-bold text-white italic">Overview</h1>
-        <p className="text-white/40 mt-1">Track your performance and student engagement.</p>
+        <p className="text-white mt-1">Track your performance and student engagement.</p>
       </header>
 
       {/* Stats Grid */}
@@ -37,7 +37,7 @@ const Dashboard = () => {
                 <TrendingUp size={10} /> {stat.trend}
               </span>
             </div>
-            <p className="text-white/40 text-[11px] font-bold uppercase tracking-widest">{stat.label}</p>
+            <p className="text-white text-[11px] font-bold uppercase tracking-widest">{stat.label}</p>
             <p className="text-3xl font-bold text-white mt-1">{stat.value}</p>
           </div>
         ))}
@@ -66,7 +66,7 @@ const Dashboard = () => {
               </div>
               <div>
                 <p className="text-white text-sm font-bold">New Course</p>
-                <p className="text-white/40 text-[11px]">Draft a new curriculum</p>
+                <p className="text-muted-white text-[11px]">Draft a new curriculum</p>
               </div>
             </button>
           </div>

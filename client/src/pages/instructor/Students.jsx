@@ -14,7 +14,7 @@ const Students = () => {
     <div className="space-y-10">
       <header>
         <h1 className="text-3xl font-bold text-white italic">Students</h1>
-        <p className="text-white/40 mt-1">Manage your student community and track individual progress.</p>
+        <p className="text-white mt-1">Manage your student community and track individual progress.</p>
       </header>
 
       {/* Toolbar */}
@@ -28,7 +28,7 @@ const Students = () => {
           />
         </div>
         <div className="flex gap-3">
-          <button className="flex items-center gap-2 px-5 rounded-full bg-white/5 text-white/50 text-xs font-bold hover:text-white transition-all">
+          <button className="flex items-center gap-2 px-5 rounded-full bg-white/5 text-muted-white text-xs font-bold hover:text-white transition-all">
             <Filter size={14} /> Filter By Course
           </button>
           <button className="flex items-center gap-2 px-6 py-2.5 rounded-full bg-primary-pink text-white text-xs font-bold hover:opacity-90 transition-all shadow-lg shadow-primary-pink/10">
@@ -42,11 +42,11 @@ const Students = () => {
         <table className="w-full text-left border-collapse">
           <thead>
             <tr className="border-b border-white/5 bg-white/[0.02]">
-              <th className="px-8 py-5 text-white/30 text-[11px] font-bold uppercase tracking-widest">Student</th>
-              <th className="px-8 py-5 text-white/30 text-[11px] font-bold uppercase tracking-widest text-center">Courses</th>
-              <th className="px-8 py-5 text-white/30 text-[11px] font-bold uppercase tracking-widest text-center">Avg. Progress</th>
-              <th className="px-8 py-5 text-white/30 text-[11px] font-bold uppercase tracking-widest text-center">Last Active</th>
-              <th className="px-8 py-5 text-white/30 text-[11px] font-bold uppercase tracking-widest text-right">Actions</th>
+              <th className="px-8 py-5 text-muted-white text-[11px] font-bold uppercase tracking-widest">Student</th>
+              <th className="px-8 py-5 text-muted-white text-[11px] font-bold uppercase tracking-widest text-center">Courses</th>
+              <th className="px-8 py-5 text-muted-white text-[11px] font-bold uppercase tracking-widest text-center">Avg. Progress</th>
+              <th className="px-8 py-5 text-muted-white text-[11px] font-bold uppercase tracking-widest text-center">Last Active</th>
+              <th className="px-8 py-5 text-muted-white text-[11px] font-bold uppercase tracking-widest text-right">Actions</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-white/5">
@@ -59,18 +59,18 @@ const Students = () => {
                     </div>
                     <div>
                       <p className="text-white font-bold text-sm leading-none">{student.name}</p>
-                      <p className="text-white/30 text-[11px] mt-1">{student.email}</p>
+                      <p className="text-muted-white text-[11px] mt-1">{student.email}</p>
                     </div>
                   </div>
                 </td>
                 <td className="px-8 py-5 text-center">
-                  <span className="bg-white/5 text-white/70 text-xs font-bold px-3 py-1 rounded-full border border-white/5">
+                  <span className="bg-white/5 text-muted-white text-xs font-bold px-3 py-1 rounded-full border border-white/5">
                     {student.courses} Courses
                   </span>
                 </td>
                 <td className="px-8 py-5">
                    <div className="max-w-[120px] mx-auto space-y-1.5">
-                     <div className="flex justify-between text-[10px] text-white/40 font-bold uppercase tracking-tighter">
+                     <div className="flex justify-between text-[10px] text-muted-white font-bold uppercase tracking-tighter">
                        <span>Progress</span>
                        <span>{student.progress}</span>
                      </div>
@@ -79,15 +79,15 @@ const Students = () => {
                      </div>
                    </div>
                 </td>
-                <td className="px-8 py-5 text-center text-white/60 text-xs font-medium">
+                <td className="px-8 py-5 text-center text-muted-white text-xs font-medium">
                   {student.lastActive}
                 </td>
                 <td className="px-8 py-5 text-right">
                   <div className="flex items-center justify-end gap-2">
-                    <button className="p-2 rounded-xl bg-white/5 text-white/40 hover:text-white hover:bg-white/10 transition-all">
+                    <button className="p-2 rounded-xl bg-white/5 text-subtle-white hover:text-white hover:bg-white/10 transition-all">
                       <Mail size={16} />
                     </button>
-                    <button className="p-2 rounded-xl bg-white/5 text-white/40 hover:text-white hover:bg-white/10 transition-all">
+                    <button className="p-2 rounded-xl bg-white/5 text-subtle-white hover:text-white hover:bg-white/10 transition-all">
                       <MoreHorizontal size={16} />
                     </button>
                   </div>

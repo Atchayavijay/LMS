@@ -122,7 +122,7 @@ const BlogSection = () => {
   const col3 = [articles[2], articles[5]];
 
   return (
-    <section className="relative w-full  py-20 px-4 flex justify-center bg-transparent border-none">
+    <section className="relative w-full pt-10 pb-20 px-4 flex justify-center bg-transparent border-none">
       {/* Background Container for the Section - Split Backgrounds */}
       <div className="relative w-full max-w-[1252px] rounded-[32px] overflow-hidden p-8 md:p-12 shadow-2xl bg-[#030002] border border-white/10">
         

@@ -15,7 +15,7 @@ const Settings = () => {
     <div className="max-w-4xl mx-auto space-y-10 pb-20">
       <header>
         <h1 className="text-3xl font-bold text-white italic">Settings</h1>
-        <p className="text-white/40 mt-1 uppercase tracking-widest text-[11px] font-bold">Configure your instructor profile & preferences</p>
+        <p className="text-white mt-1 uppercase tracking-widest text-[11px] font-bold">Configure your instructor profile & preferences</p>
       </header>
 
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
@@ -26,7 +26,7 @@ const Settings = () => {
               key={section.id} 
               className={clsx(
                 "w-full flex items-center gap-3 px-5 py-3.5 rounded-2xl text-sm font-medium transition-all text-left",
-                section.id === 'profile' ? "bg-primary-pink text-white" : "text-white/40 hover:text-white hover:bg-white/5"
+                section.id === 'profile' ? "bg-primary-pink text-white" : "text-muted-white hover:text-white hover:bg-white/5"
               )}
             >
               <section.icon size={18} />
@@ -45,7 +45,7 @@ const Settings = () => {
                </div>
                <div>
                  <h3 className="text-white font-bold text-xl">Public Profile</h3>
-                 <p className="text-white/40 text-sm italic">This info will be visible to your students</p>
+                 <p className="text-muted-white text-sm italic">This info will be visible to your students</p>
                </div>
              </div>
 
@@ -59,13 +59,13 @@ const Settings = () => {
                   <textarea 
                     rows={6}
                     placeholder="Short bio for your public profile..."
-                    className="w-full bg-white/[0.05] border border-white/10 rounded-3xl py-4 px-6 text-white text-[14px] placeholder:text-white/20 focus:outline-none focus:border-white/20 transition-all resize-none"
+                    className="w-full bg-white/[0.05] border border-white/10 rounded-3xl py-4 px-6 text-white text-[14px] placeholder:text-muted-white focus:outline-none focus:border-white/20 transition-all resize-none"
                   />
                 </div>
                 <Input label="Personal Website" placeholder="https://example.com" />
                 
                 <div className="pt-6 border-t border-white/5 flex justify-end gap-4">
-                  <button type="button" className="text-white/40 text-xs font-bold uppercase tracking-widest hover:text-white transition-all">Discard</button>
+                  <button type="button" className="text-muted-white text-xs font-bold uppercase tracking-widest hover:text-white transition-all">Discard</button>
                   <Button className="px-12 shadow-none">Save Changes</Button>
                 </div>
              </form>
@@ -74,9 +74,9 @@ const Settings = () => {
           <div className="p-8 rounded-[40px] bg-gradient-to-r from-primary-pink/10 to-transparent border border-white/5 flex items-center justify-between group cursor-pointer hover:border-primary-pink/30 transition-all">
             <div>
               <p className="text-white font-bold">Public Instructor Page</p>
-              <p className="text-white/40 text-[11px] uppercase mt-1 tracking-tighter">View how students see your profile</p>
+              <p className="text-muted-white text-[11px] uppercase mt-1 tracking-tighter">View how students see your profile</p>
             </div>
-            <ExternalLink className="text-white/20 group-hover:text-primary-pink transition-colors" />
+            <ExternalLink className="text-muted-white group-hover:text-primary-pink transition-colors" />
           </div>
         </div>
       </div>

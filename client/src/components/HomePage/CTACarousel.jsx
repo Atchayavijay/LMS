@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 
 import icon1 from '../../../assets/icon.png';
@@ -58,96 +58,89 @@ const CTACarousel = () => {
     }
   ];
 
-  const nextSlide = () => {
-    setActiveSlide((prev) => (prev + 1) % slides.length);
+  const scrollRef = React.useRef(null);
+
+  const scrollNext = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 850, behavior: 'smooth' });
+    }
   };
 
-  const prevSlide = () => {
-    setActiveSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  const scrollPrev = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -850, behavior: 'smooth' });
+    }
   };
 
   return (
-    <section className="relative w-full pt-16 pb-8 px-4 flex flex-col items-center">
-      <div className="relative z-10 w-full max-w-[1000px]">
+    <section className="relative w-full pt-10 pb-20 px-4 flex flex-col items-center overflow-hidden">
+      <div className="relative z-10 w-full max-w-[1200px]">
         {/* Gray Background Container */}
-        <div className="bg-[#1a1a1a]/60 rounded-[40px] p-10 border border-white/5 relative">
-          {/* Carousel Container */}
-          <div className="relative">
-            {/* Left Arrow - Positioned outside the container */}
-            <button
-              onClick={prevSlide}
-              className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-24 z-30 w-12 h-12 rounded-full bg-[#121212] border border-white/10 flex items-center justify-center hover:bg-[#1a1a1a] transition-all group"
-            >
-              <ChevronLeft className="w-6 h-6 text-white/70 group-hover:text-white transition-colors" />
-            </button>
+        <div className="bg-[#1a1a1a]/40 rounded-[45px] p-4 md:p-8 border border-white/5 relative backdrop-blur-sm overflow-hidden group/main">
+          
+          {/* Transition Arrows */}
+          <button
+            onClick={scrollPrev}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-[#121212]/80 border border-white/10 flex items-center justify-center hover:bg-[#1a1a1a] transition-all opacity-0 group-hover/main:opacity-100 hidden lg:flex"
+          >
+            <ChevronLeft className="w-6 h-6 text-white/70" />
+          </button>
 
-            {/* Right Arrow - Positioned outside the container */}
-            <button
-              onClick={nextSlide}
-              className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-24 z-30 w-12 h-12 rounded-full bg-[#121212] border border-white/10 flex items-center justify-center hover:bg-[#1a1a1a] transition-all group"
-            >
-              <ChevronRight className="w-6 h-6 text-white/70 group-hover:text-white transition-colors" />
-            </button>
+          <button
+            onClick={scrollNext}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-[#121212]/80 border border-white/10 flex items-center justify-center hover:bg-[#1a1a1a] transition-all opacity-0 group-hover/main:opacity-100 hidden lg:flex"
+          >
+            <ChevronRight className="w-6 h-6 text-white/70" />
+          </button>
 
-          {/* Slide Content */}
-          <div className="relative bg-gradient-to-r from-[#cf4a69] to-[#de7388] rounded-[30px] p-[1px] overflow-hidden">
-            <div className="relative bg-gradient-to-r from-[#cf4a69] to-[#de7388] rounded-[28px] p-8 flex items-center justify-between overflow-hidden">
-              {/* Content */}
-              <div className="flex-1 z-10">
-                {/* Tag with Star Icon */}
-                <div className="flex items-center gap-2 mb-4">
-                  <Sparkles className="w-4 h-4 text-[#fea76e] fill-[#fea76e]" />
-                  <span className="text-white/90 text-[12px] font-medium tracking-wide">
-                    {slides[activeSlide].tag}
-                  </span>
-                </div>
-
-                {/* Title */}
-                <h3 className="text-white text-[28px] font-bold mb-3 leading-tight">
-                  {slides[activeSlide].title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-white/90 text-[13px] leading-relaxed mb-6 max-w-[450px]">
-                  {slides[activeSlide].description}
-                </p>
-
-                {/* Button - Different styles for first 3 vs last 3 slides */}
-                <button className={`text-white text-[12px] font-medium px-6 py-2.5 rounded-lg transition-all border border-white/20 shadow-sm ${
-                  activeSlide < 3
-                    ? 'bg-gradient-to-r from-[#e89d91] to-[#945398] hover:opacity-90'
-                    : 'bg-[#532b53] hover:bg-[#663566]'
-                }`}>
-                  {slides[activeSlide].buttonText}
-                </button>
-              </div>
-
-              {/* Icon/Graphic */}
-              <div className="relative w-[140px] h-[140px] flex-shrink-0 ml-8">
-                <img
-                  src={slides[activeSlide].icon}
-                  alt="Icon"
-                  className="w-full h-full object-contain drop-shadow-2xl"
-                />
-              </div>
-            </div>
+          {/* Marquee Wrapper */}
+          <div className="relative overflow-hidden py-4 px-2" ref={scrollRef}>
+             <div className="animate-marquee-slow flex gap-6">
+                {[...slides, ...slides, ...slides].map((slide, index) => (
+                  <div key={`${slide.id}-${index}`} className="w-[850px] flex-shrink-0">
+                    <div className="relative bg-gradient-to-r from-[#cf4a69] to-[#de7388] rounded-[30px] p-[1px] overflow-hidden shadow-2xl">
+                      <div className="relative bg-gradient-to-r from-[#cf4a69] to-[#de7388] rounded-[28px] p-8 md:p-10 flex items-center justify-between overflow-hidden min-h-[320px]">
+                        <div className="flex-1 z-10">
+                          <div className="flex items-center gap-2 mb-4">
+                            <Sparkles className="w-4 h-4 text-[#fea76e] fill-[#fea76e]" />
+                            <span className="text-white/90 text-[12px] font-medium tracking-wide">
+                              {slide.tag}
+                            </span>
+                          </div>
+                          <h3 className="text-white text-[28px] md:text-[32px] font-bold mb-4 leading-tight">
+                            {slide.title}
+                          </h3>
+                          <p className="text-white/90 text-[14px] leading-relaxed mb-8 max-w-[500px]">
+                            {slide.description}
+                          </p>
+                          <button className={`text-white text-[13px] font-bold px-8 py-3 rounded-xl transition-all border border-white/20 shadow-lg ${
+                            index % 6 < 3
+                              ? 'bg-gradient-to-r from-[#e89d91] to-[#945398] hover:opacity-90'
+                              : 'bg-[#532b53] hover:bg-[#663566]'
+                          }`}>
+                            {slide.buttonText}
+                          </button>
+                        </div>
+                        <div className="relative w-[160px] h-[160px] flex-shrink-0 ml-8 hidden md:block">
+                          <img
+                            src={slide.icon}
+                            alt="Icon"
+                            className="w-full h-full object-contain drop-shadow-2xl"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+             </div>
           </div>
 
-          {/* Dots Indicator */}
-          <div className="flex justify-center gap-2 mt-6">
-            {slides.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveSlide(index)}
-                className={`h-2 rounded-full transition-all ${
-                  index === activeSlide
-                    ? 'w-8 bg-[#FF5E7E]'
-                    : 'w-2 bg-white/30 hover:bg-white/50'
-                }`}
-              />
+          {/* Decorative Dots */}
+          <div className="flex justify-center gap-2 mt-4">
+            {[...Array(3)].map((_, i) => (
+              <div key={i} className="h-1.5 rounded-full bg-white/20 w-4" />
             ))}
           </div>
-        </div>
         </div>
       </div>
     </section>

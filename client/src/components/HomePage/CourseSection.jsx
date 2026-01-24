@@ -67,7 +67,7 @@ const CourseCard = ({ course }) => {
 
 const CourseSection = ({ title, highlightWord, courses }) => {
   return (
-    <section className="relative w-full py-20 px-4 flex flex-col items-center bg-transparent overflow-hidden">
+    <section className="relative w-full pt-10 pb-20 px-4 flex flex-col items-center bg-transparent overflow-hidden">
       {/* Vertical Stripes Background */}
       <div className="absolute inset-0 opacity-10 pointer-events-none" 
            style={{ backgroundImage: 'linear-gradient(90deg, #1a1a1a 1px, transparent 1px)', backgroundSize: '60px 100%' }}>
@@ -80,28 +80,24 @@ const CourseSection = ({ title, highlightWord, courses }) => {
             {title} <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF8C42] to-[#FF3FB4]">{highlightWord}</span>
           </h2>
           
-          {/* Decorative line with stars */}
-          <div className="flex items-center justify-center gap-3 w-full max-w-[600px] mx-auto">
-            <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent to-white/60"></div>
-            <div className="flex gap-1 items-center">
-              <Star className="w-2 h-2 text-white/60 fill-white/60" />
-              <Star className="w-3 h-3 text-white fill-white" />
-              <Star className="w-2 h-2 text-white/60 fill-white/60" />
-            </div>
-            <div className="h-[1px] flex-1 bg-gradient-to-l from-transparent to-white/60"></div>
-          </div>
+
         </div>
 
-        {/* Main Glass Container */}
-        <div className="relative w-full min-h-[440px] py-10 px-8 rounded-[45px] border-[1px] border-white/5 bg-[#121212] shadow-3xl">
+        {/* Main Glass Container - Updated for horizontal scroll */}
+        <div className="relative w-full min-h-[440px] py-10 rounded-[45px] border-[1px] border-white/5 bg-[#121212] shadow-3xl overflow-hidden">
           {/* Subtle internal glow matching the image */}
           <div className="absolute inset-0 bg-gradient-to-b from-white/[0.02] to-transparent pointer-events-none rounded-[45px]"></div>
 
-          {/* Course Grid: 4 columns with exact gaps */}
-          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center items-center">
-            {courses.map((course, index) => (
-              <CourseCard key={index} course={course} />
-            ))}
+          {/* Scrolling Container - Added vertical padding to prevent clipping on hover */}
+          <div className="relative z-10 flex overflow-hidden group/container py-12 -my-12">
+            <div className="animate-marquee flex gap-6 px-4">
+              {/* Double the courses for seamless loop */}
+              {[...courses, ...courses].map((course, index) => (
+                <div key={index} className="w-[300px] flex-shrink-0">
+                  <CourseCard course={course} />
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Bottom Scroll Indicator - Styled to match the image */}
