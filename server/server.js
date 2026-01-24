@@ -1,0 +1,17 @@
+require("dotenv").config();
+const app = require("./app");
+const connectDB = require("./config/db");
+const seedAdmin = require("./helpers/seedAdmin");
+
+const PORT = process.env.PORT || 5001;
+
+// Connect DB and start server
+connectDB().then(async () => {
+  // Run seeds
+  await seedAdmin();
+
+  app.listen(PORT, () => {
+    console.log("Kattraan Live!");
+    console.log(`Server running at http://localhost:${PORT}`);
+  });
+});
