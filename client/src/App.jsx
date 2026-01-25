@@ -14,6 +14,7 @@ const WaitingForApproval = lazy(() => import('./pages/WaitingForApproval'));
 const AdminDashboard = lazy(() => import('./pages/admin/AdminDashboard'));
 const AdminLayout = lazy(() => import('./layouts/AdminLayout'));
 const InstructorApprovals = lazy(() => import('./pages/admin/InstructorApprovals'));
+const InternalPage = lazy(() => import('./components/InternalPage/InternalPage'));
 
 // Placeholder for future features
 const Dashboard = lazy(() => import('./pages/dashboard/StudentDashboard'));
@@ -31,6 +32,7 @@ function App() {
         <Routes>
           {/* Public Routes */}
           <Route path="/" element={<MainLayout showFooter={false}><LandingPage /></MainLayout>} />
+          <Route path="/course-details" element={<InternalPage />} />
           
           {/* Auth Routes */}
           <Route path="/login" element={<LoginPage />} />
